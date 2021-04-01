@@ -1,0 +1,70 @@
+﻿@using System.Collections.Generic;
+@{
+    ViewBag.Title = "InsertNewEmployee";
+}
+
+<h2>InsertNewEmployee</h2>
+@*<form>
+    </form>
+*@
+@{ 
+    List<SelectListItem> dept = new List<SelectListItem>
+    {
+        new SelectListItem{Text="IT",Value="IT"},
+        new SelectListItem{Text="Accounts",Value="Accnts"},
+        new SelectListItem{Text="HR",Value="HR"}
+    };
+}
+@using(Html.BeginForm())
+{
+    @Html.ValidationSummary(true);
+<table border="1">
+    <tr>
+        <td>Enter EmpId</td>
+        <td>@Html.TextBox("txtempId")</td>
+    </tr>
+    <tr>
+        <td>Enter EmpName</td>
+        <td>@Html.TextBox("txtempName")</td>
+    </tr>
+    <tr>
+        <td>Select Dept</td>
+        <td>@Html.DropDownList("ddlDept", dept)</td>
+    </tr>
+    <tr>
+        <td>Enter Designation</td>
+        <td>
+            <select name="ddldesg">
+                <option value="Trainee">Trainee</option>
+                <option value="Sr.Exec">Senior Executive</option>
+                <option value="Manager">Manager</option>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td>Enter Salary</td>
+        <td><input type="number" name="txtSalary" /></td>
+    </tr>
+    <tr>
+        <td>Select Proj Id</td>
+        <td>@Html.DropDownList("ddlpid",ViewData["proj"] as SelectList)</td>
+    </tr>
+    <tr>
+        <td><input type="submit" value="New Registration"/></td>
+        <td><input type="reset" value="Cancel" /></td>
+    </tr>
+
+</table>
+}
+<div>
+    @Html.ActionLink("Select Employee", "GetEmployees")
+    &nbsp;&nbsp;
+    @Html.ActionLink("Get Employee By Dept Salary", "GetEmployeeByDeptSalary")
+    &nbsp;&nbsp;
+    @Html.ActionLink("Insert Project", "InsertProject")
+    &nbsp;&nbsp;
+    @Html.ActionLink("Get Emp Project", "GetEmpProject")
+    &nbsp;&nbsp;
+    @Html.ActionLink("Select and Update","SelectAndUpdateProjectSP")
+</div>
+

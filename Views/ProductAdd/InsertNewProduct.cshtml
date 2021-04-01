@@ -1,0 +1,55 @@
+﻿
+@{
+    ViewBag.Title = "InsertNewProduct";
+}
+
+<h2>InsertNewProduct</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true);
+<table border="1">
+    <tr>
+        <td>Enter Product Id</td>
+        <td>@Html.TextBox("pid")</td>
+    </tr>
+    <tr>
+        <td>Enter Product Name</td>
+        <td>@Html.TextBox("pname")</td>
+    </tr>
+    <tr>
+        <td>Select Manufacturer</td>
+        <td>
+            <select name="ddlManufacturer">
+                <option value="Parle">Parle</option>
+                <option value="Patanjali">Patanjali</option>
+                <option value="Balaji">Balaji</option>
+                <option value="Sony">Sony</option>
+                <option value="Apple">Apple</option>
+                <option value="OnePLus">OnePlus</option>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td>Enter Product Price</td>
+        <td>@Html.TextBox("pprice")</td>
+    </tr>
+    <tr>
+        <td>Enter Product Category</td>
+        <td>@Html.TextBox("category")</td>
+    </tr>
+    <tr>
+        <td><input type="submit" value="New Product" /></td>
+        <td><input type="reset" value="Cancel" /></td>
+    </tr>
+
+</table>
+}
+<div>
+    @Html.ActionLink("Get Products", "GetProducts")
+    @Html.ActionLink("Insert Order","InsertOrder")
+    &nbsp;&nbsp;
+    @Html.ActionLink("Get Order Details","GetOrderDetails")
+    &nbsp;
+    @Html.ActionLink("Select Order Details By Id","SelectOrderByID")
+</div>

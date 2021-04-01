@@ -1,0 +1,38 @@
+﻿@{ ViewBag.Title = "GetEmployeeByDeptSalary"; }
+
+<h2>GetEmployeeByDeptSalary</h2>
+<form method="post">
+    @Html.ValidationSummary(true)
+    <div>
+        Enter DeptName : <input type="text" name="txtdept" />
+    </div>
+    <div>
+        Enter Salary : @Html.TextBox("txtsalary")
+    </div>
+    <div>
+        <input type="submit" value="Select" />
+    </div>
+
+
+
+
+    @if (Session["data"] != null)
+    {
+        IQueryable<WebApplication1.Models.Employee> emp = (IQueryable<WebApplication1.Models.Employee>)Session["data"]; //typecasting
+<table border="1">
+    @foreach (var e in emp)
+    {
+<tr>
+    <td>@e.EmpID</td>
+    <td>@e.EmpName</td>
+    <td>@e.Dept</td>
+    <td>@e.Desg</td>
+    <td>@e.Salary</td>
+    <td>@e.projid</td>
+</tr>
+}
+</table>}
+</form>
+<div>
+    @Html.ActionLink("Insert New", "InsertNewEmployee")
+</div>

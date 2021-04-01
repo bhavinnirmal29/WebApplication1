@@ -1,0 +1,31 @@
+﻿@model List<WebApplication1.Models.CustomOrderDetails>
+@{
+    ViewBag.Title = "GetOrderDetails";
+}
+
+<h2>GetOrderDetails</h2>
+<table border="1">
+    <tr>
+        <th>ProdId</th>
+        <th>ProdName</th>
+        <th>OrderId</th>
+        <th>TotalAmount</th>
+        <th>Payment Mode</th>
+        <th>Status</th>
+    </tr>
+    @foreach (var m in Model)
+    {
+        <tr>
+            <td>@m.ProdId</td>
+            <td>@m.ProdName</td>
+            <td>@m.OrderId</td>
+            <td>@m.TotalAmount</td>
+            <td>@m.PaymentMode</td>
+            <td>@m.Status1</td>
+        </tr>
+    }
+</table>
+<div>
+    @Html.ActionLink("New Product", "InsertNewProduct")
+</div>
+

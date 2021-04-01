@@ -1,0 +1,43 @@
+﻿@model WebApplication1.Models.Product
+@{
+    ViewBag.Title = "UpdateProduct";
+}
+
+<h2>UpdateProduct</h2>
+
+@using (Html.BeginForm())
+{
+    <div>
+        Product ID : <input type="text" name="pid" value=@Model.ProdId readonly />
+    </div>
+    <div>
+        Product Name: <input type="text" name="pname" value=@Model.ProdName />
+    </div>
+    <div>
+        Product Manufacturer: <input type="text" name="ddlManufacturer" value=@Model.ProdManufacturer readonly/>
+    </div>
+    <div>
+        Product Manufacturer :
+        <select name="ddlManufacturer">
+            <option value="Parle">Parle</option>
+            <option value="Patanjali">Patanjali</option>
+            <option value="Balaji">Balaji</option>
+            <option value="Sony">Sony</option>
+            <option value="Apple">Apple</option>
+            <option value="OnePLus">OnePlus</option>
+        </select>
+    </div>
+    <div>
+        Prod Price : <input type="text" name="pprice" value=@Model.ProdPrice />
+    </div>
+    <div>
+        Category : <input type="text" name="category" value=@Model.Category />
+    </div>
+    <div>
+        <input type="submit" value="Update" />
+    </div>
+    <div>
+        @Html.ActionLink("Select Products","GetProducts","ProductAdd")
+    </div>
+}
+    

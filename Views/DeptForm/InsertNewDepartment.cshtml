@@ -1,0 +1,44 @@
+﻿
+@{
+    ViewBag.Title = "InsertNewDepartment";
+}
+
+<h2>InsertNewDepartment</h2>
+@{
+    List<SelectListItem> dept = new List<SelectListItem>
+{
+        new SelectListItem{Text="IT",Value="IT"},
+        new SelectListItem{Text="Accounts",Value="Accnts"},
+        new SelectListItem{Text="HR",Value="HR"}
+    };
+}
+@using(Html.BeginForm())
+{
+    @Html.ValidationSummary(true);
+    <table border="1">
+        <tr>
+            <td>Enter DeptId</td>
+            <td>@Html.TextBox("txtDeptId")</td>
+        </tr>
+        <tr>
+            <td>Select Dept</td>
+            <td>@Html.DropDownList("ddlDept1", dept)</td>
+        </tr>
+        <tr>
+            <td>Select Location</td>
+            <td>
+                <select name="ddllocation">
+                    <option value="NewYork">New York</option>
+                    <option value="USA">USA</option>
+                    <option value="INDIA">India</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td><input type="submit" value="New Department" /></td>
+            <td><input type="reset" value="Cancel" /></td>
+        </tr>
+
+    </table>
+}
+

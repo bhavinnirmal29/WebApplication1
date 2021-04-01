@@ -1,0 +1,33 @@
+﻿@model List<WebApplication1.Models.Product>
+
+@{
+    ViewBag.Title = "GetProducts";
+}
+
+<h2>GetProducts</h2>
+<table border="1">
+    <tr>
+        <th>Product ID</th>
+        <th>Product Name</th>
+        <th>Product Manufacturer</th>
+        <th>Product Price</th>
+        <th>Product Category</th>
+        <th>Edit &nbsp;&nbsp;</th>
+        <th>Delete &nbsp;&nbsp;</th>
+    </tr>
+    @foreach (var m1 in Model)
+    {
+        <tr>
+            <td>@m1.ProdId</td>
+            <td>@m1.ProdName</td>
+            <td>@m1.ProdManufacturer</td>
+            <td>@m1.ProdPrice</td>
+            <td>@m1.Category</td>
+            <td>@Html.ActionLink("Edit " + m1.ProdId, "UpdateProduct", "ProductAdd", new { id = m1.ProdId }, null)</td>
+            <td>@Html.ActionLink("Delete " + m1.ProdId, "DeleteProduct", "ProductAdd", new { id = m1.ProdId }, null)</td>
+        </tr>
+    }
+</table>
+<div>
+    @Html.ActionLink("Product Page", "InsertNewProduct")
+</div>

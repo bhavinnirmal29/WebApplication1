@@ -1,0 +1,35 @@
+﻿
+@{
+    ViewBag.Title = "SelectAndUpdateProjectSP";
+}
+
+<h2>SelectAndUpdateProjectSP</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+    <div>
+        Proj ID : <input type="text" name="pid" />
+    </div>
+    <div>
+        <input type="submit" value="Select" name="command" />
+    </div>
+    if (ViewBag.data != null)
+    {
+        <div>
+            Proj ID : <input type="text" name="projid" value="@ViewBag.data.projid" />
+        </div>
+        <div>
+            Proj Name : <input type="text" name="pname" value="@ViewBag.data.projname" />
+        </div>
+        <div>
+            Proj Domain : <input type="text" name="pdomain" value="@ViewBag.data.domain" />
+        </div>
+        <div class="div-tag-style">
+            <input type="submit" value="Update" name="command" />
+        </div>
+    }
+}
+<div>
+    @Html.ActionLink("Insert New Employee", "InsertNewEmployee")
+</div>

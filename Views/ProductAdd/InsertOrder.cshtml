@@ -1,0 +1,32 @@
+﻿@model WebApplication1.Models.OrderInfo
+@{
+    ViewBag.Title = "InsertOrder";
+}
+
+<h2>InsertOrder</h2>
+<form method="post">
+    @Html.ValidationSummary(true);
+    <div>
+        Select Prod ID
+        @Html.DropDownList("ddlpid", ViewData["ord"] as SelectList)
+    </div>
+    <div>
+        Enter Quantity
+        @Html.TextBoxFor(x => x.Qty)
+        @Html.ValidationMessageFor(x => x.Qty)
+    </div>
+    <div>
+        Enter Payment Mode
+        @Html.TextBoxFor(x => x.PaymentMode)
+        @Html.ValidationMessageFor(x => x.PaymentMode)
+    </div>
+    <div>
+        Enter Status
+        @Html.TextBoxFor(x => x.Status1)
+        @Html.ValidationMessageFor(x => x.Status1)
+    </div>
+    <div>
+        <input type="submit" value="Insert" />
+    </div>
+</form>
+

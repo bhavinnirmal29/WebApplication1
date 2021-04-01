@@ -1,0 +1,33 @@
+﻿@model WebApplication1.Models.Employee
+@{
+    ViewBag.Title = "UpdateEmployee";
+}
+
+<h2>UpdateEmployee</h2>
+@using (Html.BeginForm())
+{
+    <div>
+        Empid : <input type="text" name="eid" value=@Model.EmpID readonly />
+    </div>
+    <div>
+        Emp Name: <input type="text" name="name" value=@Model.EmpName />
+    </div>
+    <div>
+        Dept  : <input type="text" name="dept" value=@Model.Dept />
+    </div>
+    <div>
+        Desg : <input type="text" name="desg" value=@Model.Desg />
+    </div>
+    <div>
+        Salary : <input type="text" name="sal" value=@Model.Salary />
+    </div>
+    <div>
+        Emp Project ID : <input type="text" name="pid" value=@Model.projid  />
+    </div>
+    <div>
+        <input type="submit" value="Update" />
+    </div>
+    <div>
+        @Html.ActionLink("Select Employee","GetEmployees")
+    </div>
+}
